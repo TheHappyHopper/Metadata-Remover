@@ -1,0 +1,2 @@
+python remove_metadata.py
+pause
