@@ -74,8 +74,10 @@ def main():
     target_dir = os.path.join(script_dir, "target")
 
     if not os.path.isdir(target_dir):
-        print(f"Target directory not found: {target_dir}")
-        sys.exit(1)
+        print(f"Target directory not found. Creating: {target_dir}")
+        os.makedirs(target_dir)
+        print("Target directory created. Please place your images inside it and re-run the script.")
+        sys.exit(0)
 
     os.chdir(target_dir)
     print(f"Processing images in: {target_dir}")
