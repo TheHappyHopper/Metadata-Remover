@@ -93,9 +93,11 @@ def main():
         print("No image files found to process.")
         return
 
-    for file in files:
-        print(f"Removing metadata from {file}...")
-        subprocess.run([exiftool, "-all=", "-overwrite_original", file], check=True)
+    print(f"Removing metadata from {len(files)} files...")
+    subprocess.run(
+        [exiftool, "-all=", "-overwrite_original"] + files,
+        check=True
+    )
 
     print("Metadata removal complete.")
 
